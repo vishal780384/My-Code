@@ -1,0 +1,12 @@
+class Solution {
+  public:
+    int getMaximum(int N, vector<int> &arr) {
+        long long int Max_sum=0;
+        for(int i=0;i<N;i++){
+           Max_sum+=arr[i];
+        }
+        for(int i=N;i>=1;i--){
+            if(Max_sum%i==0)  return i;
+        }
+    }
+};
