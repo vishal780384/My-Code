@@ -1,0 +1,18 @@
+class Solution {
+  public:
+    vector<int> leastPrimeFactor(int n) {
+        vector<int>arr(n+1,-22);
+        arr[0]=0;  arr[1]=1;
+ // Solving this Seive algothim;      
+        int i=2;
+        while(i<=n){
+            int j=i;
+            while(j<=n){
+               if(arr[j]==-22)  arr[j]=i;
+               j+=i;
+            }
+          i++;
+        }
+        return arr;
+    }
+};
