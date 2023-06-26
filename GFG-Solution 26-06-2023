@@ -1,0 +1,17 @@
+class Solution{
+public:
+const int M=1e9+7;
+    int fact(int N,int R, vector<vector<long long>>&arr){
+        if(N<R) return 0;
+        if(N==R or R==0) return 1;
+        if(R==1) return N;
+        if(arr[N][R]!=-1)  return arr[N][R];
+        long long a=fact(N-1,R,arr);
+        long long b=fact(N-1,R-1,arr);
+        return arr[N][R]=(a+b)%M;
+    }
+    int nCr(int n, int r){
+        vector<vector<long long>>arr(n+1,vector<long long>(r+1,-1));  
+        return fact(n,r,arr);
+    }
+};
