@@ -1,0 +1,20 @@
+class Solution{
+    public:
+    struct Node* makeUnion(struct Node* head1, struct Node* head2){
+        set<int>st;
+        while(head1!=NULL){
+            st.insert(head1->data);
+            head1=head1->next;
+        }
+        while(head2!=NULL){
+            st.insert(head2->data);
+            head2=head2->next;
+        }  
+        Node *curr=NULL,*str=NULL;
+        for(auto i:st){
+            if(str==NULL){ str=new Node(i);  curr=str;  }
+            else{ curr->next=new Node(i);  curr=curr->next; }
+        }
+        return str;
+    }
+};
