@@ -1,0 +1,23 @@
+class Solution{
+public:
+    int happyNum(int a){
+        if(a<10){
+           if(a==1 or a==7) return 1;
+           else return 0;
+        } 
+        long long int ans=0;
+        while(0<a){
+            int r=a%10;
+            ans+=r*r;
+            a=a/10;
+        }
+        return happyNum(ans);
+    }
+    
+    int nextHappy(int N){
+        while(N++){
+            if(happyNum(N))  break;
+        }
+       return N;
+    }
+};
