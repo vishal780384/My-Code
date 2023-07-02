@@ -1,0 +1,13 @@
+class Solution{
+    public:
+    int setSetBit(int x, int y, int l, int r){
+        // Solving using bitset;
+        bitset<31>arr1(x);
+        bitset<31>arr2(y);
+        
+        for(int i=l-1;i<r;i++){
+            if(arr2[i])  arr1[i]=1;
+        }
+        return arr1.to_ulong();
+    }
+};
