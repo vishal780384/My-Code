@@ -1,0 +1,10 @@
+class Solution {
+  public:
+    int stockBuyAndSell(int n, vector<int> &Pric) {
+        int ans=0; 
+        for(int i=1;i<n;i++){
+            if(Pric[i]>Pric[i-1])  ans+=Pric[i]-Pric[i-1];
+        }
+        return ans;
+    }
+};
