@@ -1,0 +1,34 @@
+int top=0;  int down=n-1;  int left=0; int right=m-1;
+ 		int dic=0;  int ctn=1;
+ 		while(top<=down && left<=right){
+ 		    if(dic==0){
+ 		        for(int i=left;i<=right;i++){
+ 		          if(ctn==k){ return a[top][i]; }
+ 		          ctn++;  
+ 		        }
+ 		          top+=1; 
+ 		    }
+ 		    if(dic==1){
+ 		        for(int i=top;i<=down;i++){
+ 		          if(ctn==k) return a[i][right];
+ 		          ctn++; 
+ 		        }
+ 		        right-=1;
+ 		    }
+ 		    if(dic==2){
+ 		        for(int i=right;i>=left;i--){
+ 		          if(ctn==k) return a[down][i];
+ 		          else ctn++;
+ 		        }
+ 		        down-=1;
+ 		    }
+ 		    if(dic==3){
+ 		        for(int i=down;i>=top;i--){
+ 		          if(ctn==k) return a[i][left];
+ 		          else ctn++;
+ 		        }
+ 		        left+=1;
+ 		    }
+ 		    
+ 		    dic=(dic+1)%4;
+ 		}
