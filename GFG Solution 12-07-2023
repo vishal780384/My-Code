@@ -1,0 +1,19 @@
+class Solution{
+    public:
+      int  mod=1e9+7;
+      long long ans=1;
+      long long power1(int n, int r){  
+        if(r==0){ return 1;  }
+        long long pr= power1(n,r/2)%mod;
+        if(r%2==1){
+            return ((pr*pr)%mod*n)%mod;
+        }
+        return (pr*pr)%mod;
+    }
+    //You need to complete this fucntion
+    long long power(int N,int R){
+       //Your code here
+         ans=power1(N,R)%mod;
+       return ans;
+    }
+};
