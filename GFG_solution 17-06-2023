@@ -1,0 +1,22 @@
+class Solution {
+	public:
+		string FirstNonRepeating(string A){
+		    // Code here
+		    string str="";   int N=A.size();
+		    vector<int> V(26,0);
+		    vector<int> vec(26,-1);
+	       for(int i=0;i<N;i++){
+	           if(vec[A[i]-'a']==-1){ vec[A[i]-'a']=i;  }
+	           V[A[i]-'a']+=1;
+	           char ch='#';  int x=N+1;
+	           for(int j=0;j<26;j++){
+	               if(V[j]==1 && x>vec[j]){
+	                   ch=j+'a';
+	                   x=vec[j];
+	               }
+	           }
+	           str+=ch;
+	       }
+		    return str;
+	  }
+};
