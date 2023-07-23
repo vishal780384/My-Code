@@ -1,0 +1,36 @@
+class Solution
+{
+    public:
+    //Function to sort a linked list of 0s, 1s and 2s.
+    Node* segregate(Node *head) {
+        int str=0;   // for 0
+        int mid=0;   // for 1
+        int end=0;   // for 2
+        while(head!=NULL){  
+            if(head->data==0) str++;
+            else if(head->data==1) mid++;
+            else if(head->data==2) end++;
+            head=head->next; 
+        }
+        
+        while(end>0){
+            struct Node*t=new Node(2);
+            t->next=head;
+            head=t;
+            end--;
+        }
+        while(mid>0){
+            struct Node*t=new Node(1);
+            t->next=head;
+            head=t;
+            mid--;
+        }
+        while(str>0){
+            struct Node*t=new Node(0);
+            t->next=head;
+            head=t;
+            str--;
+        }
+       return head;   
+    }
+};
