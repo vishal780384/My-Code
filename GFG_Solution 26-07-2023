@@ -1,0 +1,18 @@
+void solve(Node*root,int k, int node, vector<int>&arr,int &ind){
+    if(!root) return ;
+    if(root->data==node && arr.size()>=k){ 
+        ind=arr[arr.size()-k];
+        return;
+    }
+    arr.push_back(root->data);
+    solve(root->left,k,node,arr,ind); 
+    solve(root->right,k,node,arr,ind); 
+    arr.pop_back();
+}
+
+int kthAncestor(Node *root, int k, int node){
+    // Code here
+    vector<int>arr;  int ind=-1;
+    solve(root,k,node,arr,ind);
+    return ind;
+}
