@@ -1,0 +1,20 @@
+class Solution{
+    public:
+    //Complete this function
+    void purmutation(vector<string>&str,int l,int r,string &st){
+        if(l==r)  str.push_back(st);
+        for(int i=l;i<=r;i++){
+            swap(st[l],st[i]);
+            purmutation(str,l+1,r,st);
+            swap(st[l],st[i]);
+        }
+    }
+    vector<string> permutation(string S){
+         int n=S.length()-1;
+         int m=0;
+         vector<string>str;
+         purmutation(str,m,n,S);
+         sort(str.begin(),str.end());
+         return str;
+    }
+};
