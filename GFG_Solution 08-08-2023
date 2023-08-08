@@ -1,0 +1,18 @@
+class Solution{
+    public:
+    int countFractions(int n, int numerator[], int denominator[]){  
+      int i=0,ans=0;
+      map<pair<int,int>,int>m;
+      while(i<n){
+           int x,y;
+           int gc=__gcd(numerator[i],denominator[i]);
+           x=numerator[i]/gc;
+           y=denominator[i]/gc;
+           int z=y-x;
+         if(m.find({z,y})!=m.end()){   ans+=m[{z,y}]; }
+         m[{x,y}]++;;
+         i++;
+       }
+       return ans;
+    }
+};
