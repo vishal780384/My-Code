@@ -1,0 +1,13 @@
+class Solution{
+public: 
+    long long int largestPrimeFactor(int N){
+        // code here
+        long long ans=INT_MIN;
+        
+        for(int i=2;i<=sqrt(N);i++){
+            while(N%i==0){ ans=i; N/=i;  }
+        }
+        if(N>1) return N; 
+        return ans;
+    }
+};
