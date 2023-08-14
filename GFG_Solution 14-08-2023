@@ -1,0 +1,17 @@
+class Solution{
+public:
+    vector<int> singleNumber(vector<int> nums) {
+        // Code here.
+        int a=0; vector<int>temp(2,0);  
+        for(int i=0;i<nums.size();i++){
+            a^=nums[i];
+        }
+        int  b=(a & (a-1))^a;
+        for(int i=0;i<nums.size();i++){
+            if(nums[i] & b) temp[0]^=nums[i];
+            else temp[1]^=nums[i];
+        }
+        if(temp[0] > temp[1])  swap(temp[0],temp[1]);
+        return temp;
+    }
+};
