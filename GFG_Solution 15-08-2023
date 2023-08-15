@@ -1,0 +1,18 @@
+class Solution{
+    public:
+    int maxOnes(int arr[], int n){
+        int ctn=0;
+        for(int i=0;i<n;i++){
+            if(arr[i]==1){  arr[i]=-1;  ++ctn; }
+            else arr[i]=1;
+        }
+        int Max_sum=0;
+        int sum=0;
+        for(int i=0;i<n;i++){
+            sum+=arr[i];
+            Max_sum=max(Max_sum,sum);
+            if(sum<=0) sum=0;
+        }
+        return Max_sum+ctn;
+    }
+};
