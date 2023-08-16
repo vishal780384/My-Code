@@ -1,0 +1,17 @@
+class Solution{
+    public:
+    const int m=1e9+7;
+    //Function to find the nth catalan number.
+    int findCatalan(int n) 
+    {
+        //code here
+        long long arr[n+1]={0};
+        arr[0]=1;
+        for(int a=0;a<n+1;a++){
+            for(int b=0;b<a;b++){
+                arr[a]=(arr[a]+(arr[b]*arr[a-b-1])%m)%m;
+            }
+        }
+        return arr[n];
+    }
+};
