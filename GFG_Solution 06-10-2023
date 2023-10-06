@@ -1,0 +1,40 @@
+class Solution{
+    public:
+    void rearrange(struct Node *head){
+        //add code here
+        if(head==NULL || head->next==NULL){
+            head = head ;
+            return ;
+        }
+        Node * temp = head ;
+        // Storing the pointer for reversing 
+        Node* curr = head->next ;
+        Node * forw = head -> next ;
+        
+        while(forw->next!=NULL && forw->next->next!=NULL){
+            // logic
+            temp->next = forw ->next ;
+            forw->next = forw->next->next ;
+            // pointers move ahead 
+            temp = temp->next ;
+            forw = forw->next ;
+        }
+        Node * star = reverse(curr);
+        temp->next = star ;
+    }
+    
+    Node * reverse(Node*head){
+        Node * curr = head ;
+        Node * prev = NULL ;
+        Node * forw = NULL ;
+        
+        while(curr!=NULL){
+            forw = curr->next ;
+            curr->next = prev ;
+            prev = curr ;
+            curr = forw ;
+        }
+        
+        return prev ;   
+    }
+};
