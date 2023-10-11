@@ -1,0 +1,18 @@
+class Solution{
+    public:
+    int solve(Node *root){
+        if(!root) return 0;
+        int a=solve(root->left)+1;
+        int b=solve(root->right)+1;
+        return max(a,b);
+    }
+    //Function to check whether a binary tree is balanced or not.
+    bool isBalanced(Node *root){
+        //  Your Code here
+        if(!root) return true;
+        int a=solve(root->left);
+        int b=solve(root->right);
+        if(abs(a-b)>1) return false;
+        return isBalanced(root->left) && isBalanced(root->right);
+    }
+};
