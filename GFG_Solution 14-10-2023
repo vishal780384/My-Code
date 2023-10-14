@@ -1,0 +1,26 @@
+class Solution{
+    public:
+    void solve(Node* root,set<int>&s,vector<int>&ans){
+        if(root==NULL)return;
+        solve(root->left,s,ans);
+        
+        if(s.find(root->data)!=s.end()){
+            ans.push_back(root->data);
+        }else{
+        s.insert(root->data);
+            
+        }
+        solve(root->right,s,ans);
+    }
+    vector <int> findCommon(Node *root1, Node *root2)
+    {
+     //Your code here
+     set<int>m1;
+     vector<int>ans;
+     
+     solve(root1,m1,ans);
+     solve(root2,m1,ans);
+
+     return ans;
+    }
+};
