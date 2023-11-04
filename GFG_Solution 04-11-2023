@@ -1,0 +1,12 @@
+class Solution{
+public:      
+    int transitionPoint(int arr[], int n) {
+        // code here
+        int l=0;
+        while(l<n){
+            if(arr[l]==1) return l;
+            else l++;
+        }
+        return -1;
+    }
+};
