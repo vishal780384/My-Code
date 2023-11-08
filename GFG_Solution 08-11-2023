@@ -1,0 +1,25 @@
+class Solution{   
+    public:
+    //Function to return list of integers visited in snake pattern in matrix.
+    vector<int> snakePattern(vector<vector<int> > matrix){   
+        // code here
+        int n=matrix.size();
+        int m=matrix[0].size();
+        vector<int>Ans;
+        for(int i=0;i<n;i++){
+            if(i%2==0) { //even 
+               for(int j=0;j<m;j++){
+                   int a=matrix[i][j];
+                   Ans.push_back(a); 
+               }
+            }
+            else{
+               for(int j=m-1;j>=0;j--){
+                   int a=matrix[i][j];
+                   Ans.push_back(a);
+               } 
+            }
+        }
+        return Ans;
+    }
+};
